@@ -1,0 +1,4 @@
+Sugerencia de nombre de entrega:
+- P1_Apellido_Nombre.zip
+
+Evidencias: 3 capturas + (opcional) captura /api/items/stats

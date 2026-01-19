@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Items UI (fetch)</title>
+  <style>
+    body { font-family: system-ui, Arial; max-width: 920px; margin: 20px auto; padding: 0 12px; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .card { border: 1px solid #ddd; border-radius: 10px; padding: 12px; }
+    .card h3 { margin: 0 0 10px 0; }
+    label { display:block; margin-top: 8px; }
+    input { width: 100%; padding: 8px; }
+    button { padding: 9px 12px; margin-top: 10px; }
+    .err { color: #b00020; }
+    .ok { color: #0a7a0a; }
+    .muted { color: #666; }
+    .stats { display:flex; gap:16px; }
+    .pill { background:#f3f3f3; padding:6px 10px; border-radius:999px; }
+  </style>
+</head>
+<body>
+  <h2>Items – UI (fetch)</h2>
+  <p class="muted">API: <code>/api/items</code> — Parcial: agregar <code>/api/items/stats</code> y validación duplicado.</p>
+
+  <div id="stats" class="card" style="margin-bottom:12px;">
+    <h3>Estadísticas</h3>
+    <div class="muted">(TODO PARCIAL: cargar desde /api/items/stats y mostrar count y total_qty)</div>
+  </div>
+
+  <div class="row">
+    <div class="card" style="flex:1; min-width: 280px;">
+      <h3>Alta</h3>
+      <div id="msg"></div>
+      <div id="errs" class="err"></div>
+
+      <form id="frm">
+        <label>Nombre</label>
+        <input id="name" autocomplete="off" />
+        <label>Cantidad</label>
+        <input id="qty" autocomplete="off" />
+        <button type="submit">Guardar</button>
+      </form>
+    </div>
+
+    <div class="card" style="flex:2; min-width: 320px;">
+      <h3>Listado</h3>
+      <div id="loading" class="muted" style="display:none;">Cargando…</div>
+      <div id="list"></div>
+    </div>
+  </div>
+
+  <script src="items_ui.js"></script>
+</body>
+</html>
