@@ -74,3 +74,15 @@ En la UI:
 
 ## Nota
 Si en el aula no hay internet estable, el docente puede distribuir el proyecto **con la carpeta `vendor/` ya instalada** (ejecutando `composer install` previamente).
+
+-------
+Uso rápido en aula
+
+Descomprimir en: C:\xampp\htdocs\prog3_recuperatorio\
+
+En la raíz del proyecto: composer install
+
+En phpMyAdmin: ejecutar install/01_init.sql
+
+Abrir UI:
+http://localhost/prog3_recuperatorio/public/items_ui.html
