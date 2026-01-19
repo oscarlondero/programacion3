@@ -1,0 +1,2 @@
+USE prog3;
+TRUNCATE TABLE items;

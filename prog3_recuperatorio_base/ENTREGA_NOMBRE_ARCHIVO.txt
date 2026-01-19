@@ -1,0 +1,4 @@
+Sugerencia de nombre de entrega:
+- REC_Apellido_Nombre.zip
+
+Evidencias: 4 capturas (ver README_RECUPERATORIO.md)
