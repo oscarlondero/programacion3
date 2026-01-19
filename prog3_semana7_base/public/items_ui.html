@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Items UI (Semana 7)</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;max-width:900px;margin:24px auto;padding:0 14px;}
+    .card{border:1px solid #ddd;border-radius:10px;padding:14px;margin:12px 0;}
+    .row{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;}
+    label{display:block;font-size:12px;color:#444;margin-bottom:4px;}
+    input{padding:8px 10px;border:1px solid #ccc;border-radius:8px;min-width:180px;}
+    button{padding:9px 14px;border:1px solid #222;border-radius:10px;background:#fff;cursor:pointer;}
+    button:disabled{opacity:0.6;cursor:not-allowed;}
+    .err{color:#b00020;margin-top:10px;}
+    ul{margin:8px 0 0 18px;}
+    table{width:100%;border-collapse:collapse;margin-top:8px;}
+    th,td{border-bottom:1px solid #eee;padding:8px;text-align:left;font-size:14px;}
+    th{font-size:12px;color:#555;text-transform:uppercase;letter-spacing:0.04em;}
+    .muted{color:#666;font-size:13px;}
+  </style>
+</head>
+<body>
+  <h1>Items UI (Semana 7)</h1>
+  <div class="muted">Esta página consume la API <code>api/items</code> y <code>api/categories</code> con <code>fetch()</code> (mismo proyecto, sin CORS).</div>
+
+  <div class="card">
+    <h3 style="margin:0 0 8px 0;">Nuevo item</h3>
+    <form id="frm" autocomplete="off">
+      <div class="row">
+        <div>
+          <label>Nombre (mín. 3)</label>
+          <input id="name" name="name" placeholder="Ej: Yerba" />
+        </div>
+        <div>
+          <label>Categoría</label>
+          <select id="catCreate" name="category_id" style="padding:8px 10px;border:1px solid #ccc;border-radius:8px;min-width:200px;"></select>
+        </div>
+        <div>
+          <label>Cantidad (entero &gt;= 0)</label>
+          <input id="qty" name="qty" value="0" />
+        </div>
+        <div>
+          <button id="btn" type="submit">Guardar</button>
+        </div>
+      </div>
+      <div id="err" class="err" style="display:none;"></div>
+    </form>
+  </div>
+
+  <div class="card">
+    <h3 style="margin:0 0 8px 0;">Listado (por categoría)</h3>
+    <div class="muted">Seleccioná una categoría arriba para filtrar el listado. Opción “Todas” muestra todo.</div>
+    <div class="row" style="margin-top:8px;">
+      <div>
+        <label>Filtrar por categoría</label>
+        <select id="catFilter" style="padding:8px 10px;border:1px solid #ccc;border-radius:8px;min-width:220px;"></select>
+      </div>
+      <div>
+        <button id="reload" type="button">Recargar</button>
+      </div>
+      <div class="muted" id="status" style="margin-left:10px;"></div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Categoría</th>
+          <th>Nombre</th>
+          <th>Qty</th>
+          <th>Creado</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <script src="items_ui.js"></script>
+</body>
+</html>
