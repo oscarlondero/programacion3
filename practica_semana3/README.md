@@ -69,3 +69,54 @@ Suponiendo que la carpeta se llama `prog3_semana3_base`:
 - Si ves 404 en todas las rutas: revisar `AllowOverride` y `mod_rewrite` (XAMPP) y que exista `.htaccess` en `public/`.
 - Si el JSON sale roto: desactivar warnings en pantalla y evitar `var_dump`.
 - Si falla la conexion DB: revisar `config/db.php` (host, database, user).
+
+- ------------------
+Qué incluye el paquete
+
+Router manual con .htaccess (Front Controller) en public/index.php
+
+Endpoint JSON: GET /health
+
+Form HTML: GET /items/new
+
+Persistencia con MySQL + Eloquent:
+
+GET /items (lista items en JSON)
+
+POST /items (crea item en DB, devuelve 201 o 400)
+
+Modelo Eloquent: src/Model/Item.php
+
+Script SQL de instalación: install/01_items.sql
+
+Guía paso a paso (para el profe de práctica): README_PRACTICA_SEMANA3.md
+
+Cómo usarlo en clase (resumen operativo)
+
+Descomprimir en:
+C:\xampp\htdocs\prog3_semana3_base\
+
+En la raíz del proyecto ejecutar:
+composer install
+
+En phpMyAdmin ejecutar:
+install/01_items.sql (crea DB prog3 y tabla items)
+
+Probar:
+
+http://localhost/prog3_semana3_base/public/health
+
+http://localhost/prog3_semana3_base/public/items/new
+
+http://localhost/prog3_semana3_base/public/items
+
+Si algo falla, en README_PRACTICA_SEMANA3.md dejé un “solucionario rápido” (mod_rewrite, AllowOverride, JSON roto por warnings, credenciales DB, etc.).
+
+Tip importante (para evitar fricción en el aula)
+
+Si querés cero sorpresas con Composer durante la clase, lo ideal es que el profe (o vos) haga:
+
+composer install en una PC que funcione
+
+y luego vuelva a comprimir el proyecto incluyendo la carpeta vendor/
+Así los alumnos solo copian y ejecutan (sin descargar dependencias en clase).
